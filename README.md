@@ -13,10 +13,26 @@ Tapper is a tap runner which allows stdout and stderr mixed in with the tap outp
 ## Installing
 
 ```bash
-  npm install https://github.com/jeffbski/tapper/tarball/v0.0.1
+  npm install https://github.com/jeffbski/tapper/tarball/v0.0.2  # to install locally
   # OR
-  npm install -g https://github.com/jeffbski/tapper/tarball/v0.0.1  # to install globally
+  npm install -g https://github.com/jeffbski/tapper/tarball/v0.0.2  # to install globally
 ```    
+
+OR 
+
+Add to your project package.json
+
+```javascript
+  "devDependencies": {
+    "tapper" : "https://github.com/jeffbski/tapper/tarball/v0.0.2"
+    }
+```
+
+Then npm install your package with dev dependencies from the project directory 
+
+```bash
+  npm install --dev
+```
 
 OR 
    
@@ -25,7 +41,7 @@ Pull from github - http://github.com/jeffbski/tapper
 ## Usage
 
 ```bash
-  bin/tapper.js fileOrDir   # if installed locally
+  node_modules/bin/tapper.js fileOrDir   # if installed locally
   #OR
   tapper fileOrDir  # if installed globally
 ```  
@@ -40,7 +56,8 @@ Pull from github - http://github.com/jeffbski/tapper
 
 ## Contributors
 
- - Author: Jeff Barczewski (@jeffbski)
+ - Modifications by author: Jeff Barczewski (@jeffbski)
+ - Original code Isaac Z. Schlueter <i@izs.me> http://blog.izs.me
 
 ## Contributing
 
