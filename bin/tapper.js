@@ -4,7 +4,7 @@ var sprintf = require('sprintf').sprintf;
 var clc = require('cli-color');
 var optimist = require('optimist');
 
-var VERSION = '0.0.6';
+var VERSION = '0.0.7';
 
 var argv = optimist.usage('Usage: $0 fileOrDir {OPTIONS}', {
   'help': {
