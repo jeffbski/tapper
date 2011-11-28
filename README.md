@@ -66,6 +66,10 @@ Stderr and stdout is muted except for files which have a failing test
 
 ### Failure example with some failures and stdout
 
+ - Green - successful tests and files
+ - Red - failed tests and files
+ - Blue - test names
+
 ![failed-tapr](http://github.com/jeffbski/tapper/raw/master/doc/failed-tapr.png)
 
 ### Original tap runner success
