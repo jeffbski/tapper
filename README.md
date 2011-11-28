@@ -1,6 +1,6 @@
 # Tapper
 
-Tapper (aka tapr) is a tap runner which allows stdout and stderr mixed in with the tap output. Also tapper adds color to the output. Core based on Isaac Z Schlueter original tap runner.
+Tapper (aka tapr) is a node.js tap runner which allows stdout and stderr mixed in with the tap output. Also tapper adds color to the output. Core based on Isaac Z Schlueter original tap runner.
 
 
 ## Goals
