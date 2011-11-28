@@ -40,48 +40,43 @@ var TapProducer = require("tap").Producer;
 var r = new Runner(argv._, argv);
 var colorize = argv.color;
 
-
-
-if (process.env.TAP || process.env.TAP_DIAG) {
-  r.pipe(process.stdout)
-} else {
-  r.on("file", function (file, results, details) {
-    var s = (details.ok ? "" : "not ") + "ok "+results.name
-      , n = details.pass + "/" + details.testsTotal
-      , dots = new Array(Math.max(1, 40 - s.length - n.length)).join(".")
-    var sdotsn = sprintf("%s %s %s", s, dots, n);
-    if (details.ok) {
-      if (colorize) sdotsn = clc.green(sdotsn);
-      console.log(sdotsn);
-      if (details.skip) {
-        console.log("  skipped: %s", details.skipTotal)
-      }
-    } else {
-      if (colorize) sdotsn = clc.red(sdotsn);
-      console.log(sdotsn);
-      if (results.stderr && results.stderr.trim()) console.error(results.stderr);
-      console.error(formatFailedAsserts(details));
-       //console.error(details)
-//      console.log("    Command: %s", results.command)
-//      console.log("    " + TapProducer.encode(details.list)
-//                  .split(/\n/).join("\n    "))
+r.on("file", function (file, results, details) {
+  var s = (details.ok ? "" : "not ") + "ok "+results.name
+  , n = details.pass + "/" + details.testsTotal
+  , dots = new Array(Math.max(1, 40 - s.length - n.length)).join(".")
+  var sdotsn = sprintf("%s %s %s", s, dots, n);
+  if (details.ok) {
+    if (colorize) sdotsn = clc.green(sdotsn);
+    console.log(sdotsn);
+    if (details.skip) {
+      console.log("  skipped: %s", details.skipTotal)
     }
-  })
-  r.on("end", function () {
-    //console.log(r)
-    var s = "total"
-      , n = r.results.pass + "/" + r.results.testsTotal
-      , dots = new Array(40 - s.length - n.length).join(".")
-      , ok = r.results.ok ? "ok" : "not ok"
-    var sdots = sprintf("%s %s %s\n\n%s", s, dots, n, ok);
+  } else {
+    if (colorize) sdotsn = clc.red(sdotsn);
+    console.log(sdotsn);
+    if (results.stderr && results.stderr.trim()) console.error(results.stderr);
+    console.error(formatFailedAsserts(details));
+    //console.error(details)
+    //      console.log("    Command: %s", results.command)
+    //      console.log("    " + TapProducer.encode(details.list)
+    //                  .split(/\n/).join("\n    "))
+  }
+})
+r.on("end", function () {
+  //console.log(r)
+  var s = "total"
+  , n = r.results.pass + "/" + r.results.testsTotal
+  , dots = new Array(40 - s.length - n.length).join(".")
+  , ok = r.results.ok ? "ok" : "not ok"
+  var sdots = sprintf("%s %s %s\n\n%s", s, dots, n, ok);
     if (colorize) {
       if (r.results.ok) sdots = clc.green(sdots);
       else sdots = clc.red(sdots);
     }
-    console.log(sdots);
-    // process.stdout.flush()
-  })
-}
+  console.log(sdots);
+  // process.stdout.flush()
+})
+
 
 
 
