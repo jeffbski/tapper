@@ -4,7 +4,7 @@ var sprintf = require('sprintf').sprintf;
 var clc = require('cli-color');
 var optimist = require('optimist');
 
-var VERSION = '0.0.7';
+var VERSION = '0.1.0';
 
 var argv = optimist.usage('Usage: $0 fileOrDir {OPTIONS}', {
   'help': {
@@ -94,9 +94,16 @@ function formatFailedAsserts(details) {
   if (!details || !details.list) return '';
   var failed = details.list.filter(function (x) { return (!x.ok); });
   var msgs = failed.map(function (x) {
-    var msg = sprintf('Assert: "%s", \n\t found: %s \n\twanted: %s', x.name, x.found, x.wanted);
+    var msg, stack;
+    if (x.thrown) {
+      msg = sprintf('Error thrown: %s "%s" \n\tcode: %s, errno: %s\n', x.type, x.message, x.code, x.errno);
+      stack = '  ' + x.stack.join('\n  '); // indent stack lines by two spaces
+    } else { //normal assertion failure
+      msg = sprintf('Assert: "%s", \n\t found: %s \n\twanted: %s', x.name, x.found, x.wanted);
+      stack = sprintf('\n\t%s:%s', x.file, x.line);
+    }
     if (colorize) msg = clc.red(msg);
-    return msg + sprintf('\n\t%s:%s', x.file, x.line);
+    return msg + stack;
   });
   msgs.push(''); //cause newline
   return msgs.join('\n');

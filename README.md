@@ -1,21 +1,21 @@
 # Tapper
 
-Tapper is a tap runner which allows stdout and stderr mixed in with the tap output. Also tapper adds color to the output. Core based on Isaac Z Schlueter original tap runner.
+Tapper (aka tapr) is a tap runner which allows stdout and stderr mixed in with the tap output. Also tapper adds color to the output. Core based on Isaac Z Schlueter original tap runner.
 
 
 ## Goals
 
+ - More concise formatting of tap output (easier to find what you care about)
  - Improve ability to write to stdout and stderr from tests or code
- - Output is muted for successful tests, but displayed for failing tests
- - Add colorized output
-
+ - stdout/stderr is muted for successful tests, but displayed for files with failing tests
+ - Add optional colorized output
 
 ## Installing
 
 ```bash
-  npm install https://github.com/jeffbski/tapper/tarball/v0.0.7  # to install locally
+  npm install tapr
   # OR
-  npm install -g https://github.com/jeffbski/tapper/tarball/v0.0.7  # to install globally
+  npm install -g tapr
 ```    
 
 OR 
@@ -24,7 +24,7 @@ Add to your project package.json
 
 ```javascript
   "devDependencies": {
-    "tapper" : "https://github.com/jeffbski/tapper/tarball/v0.0.7"
+    "tapper" : "~0.1.0"
     }
 ```
 
@@ -41,19 +41,20 @@ Pull from github - http://github.com/jeffbski/tapper
 ## Usage
 
 ```bash
-  node_modules/.bin/tapper.js fileOrDir   # if installed locally
+  node_modules/.bin/tapr.js fileOrDir   # if installed locally
   #OR
-  tapper fileOrDir  # if installed globally
+  tapr fileOrDir  # if installed globally
   #
-  tapper                     # display usage
-  tapper --help         # display usage
-  tapper --version    # display version
-  tapper --no-color fileOrDir   # run without color output
+  tapr                                     # display usage
+  tapr --help                         # display usage
+  tapr --version                    # display version
+  tapr --no-color fileOrDir   # run without color output
 ```  
 
 ## Status
 
- - 2011-11-22 - Tapper is based on the original tap code with minor changes. The runner will evolve with features as time permits but appears to be fully functional.
+ - v0.1.0 - 2011-11-28 - tapr - change bin/tapper to bin/tapr for convenient typing. tapr is also short for tap runner
+ - v0.0.6 - 2011-11-22 - Tapper is based on the original tap code with minor changes. The runner will evolve with features as time permits but appears to be fully functional.
 
 ## License
 
