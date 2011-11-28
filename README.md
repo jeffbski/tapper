@@ -24,7 +24,7 @@ Add to your project package.json
 
 ```javascript
   "devDependencies": {
-    "tapper" : "~0.1.0"
+    "tapr" : "~0.1.0"
     }
 ```
 
