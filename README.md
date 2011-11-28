@@ -13,9 +13,9 @@ Tapper (aka tapr) is a tap runner which allows stdout and stderr mixed in with t
 ## Installing
 
 ```bash
-  npm install tapr
+  npm install tapr  # install locally
   # OR
-  npm install -g tapr
+  npm install -g tapr  # install globally
 ```    
 
 OR 
@@ -55,6 +55,26 @@ Pull from github - http://github.com/jeffbski/tapper
 
  - v0.1.0 - 2011-11-28 - tapr - change bin/tapper to bin/tapr for convenient typing. tapr is also short for tap runner
  - v0.0.6 - 2011-11-22 - Tapper is based on the original tap code with minor changes. The runner will evolve with features as time permits but appears to be fully functional.
+ 
+## Screenshots
+
+### Successful example where all tests are passing
+
+Stderr and stdout is muted except for files which have a failing test
+
+![success-tapr](http://github.com/jeffbski/tapper/raw/master/doc/success-tapr.png)
+
+### Failure example with some failures and stdout
+
+![failed-tapr](http://github.com/jeffbski/tapper/raw/master/doc/failed-tapr.png)
+
+### Original tap runner success
+
+![success-tap](http://github.com/jeffbski/tapper/raw/master/doc/success-tap.png)
+
+### Original tap runner failure
+
+![failed-tap](http://github.com/jeffbski/tapper/raw/master/doc/failed-tap.png)
 
 ## License
 
