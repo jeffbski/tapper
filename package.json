@@ -12,7 +12,7 @@
   "licenses": [{ "type": "MIT", "url" : "http://github.com/jeffbski/tapper/raw/master/LICENSE" }],
   "main": "lib/tapper",
   "bin" : "bin/tapr.js",
-  "engines": { "node": "~v0.4.12" },
+  "engines": { "node": "*" },
   "dependencies": {
     "cli-color": "~0.1.4",
     "sprintf": "~0.1.1",
