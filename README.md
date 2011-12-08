@@ -27,6 +27,18 @@ Add to your project package.json
     }
 ```
 
+Also you will want to either add "tap" as a devDependency to use in your tests
+
+OR
+
+In your tests use the tap that is available off of tapr
+
+```javascript
+  // in your test file
+  var test = require('tapr').tap.test.
+```
+
+
 Then npm install your package with dev dependencies from the project directory 
 
 ```bash
