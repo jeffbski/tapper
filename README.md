@@ -7,7 +7,6 @@ Tapper (aka tapr) is a node.js tap runner which allows stdout and stderr mixed i
 
  - More concise formatting of tap output (easier to find what you care about)
  - Improve ability to write to stdout and stderr from tests or code
- - stdout/stderr is muted for successful tests, but displayed for files with failing tests
  - Add optional colorized output
 
 ## Installing
@@ -24,7 +23,7 @@ Add to your project package.json
 
 ```javascript
   "devDependencies": {
-    "tapr" : "~0.1.0"
+    "tapr" : "~0.1.1"
     }
 ```
 
@@ -53,6 +52,7 @@ Pull from github - http://github.com/jeffbski/tapper
 
 ## Status
 
+ - v0.1.1 - 2011-12-08 - change stdout/stderr to always output, not just for failed tests
  - v0.1.0 - 2011-11-28 - tapr - change bin/tapper to bin/tapr for convenient typing. tapr is also short for tap runner
  - v0.0.6 - 2011-11-22 - Tapper is based on the original tap code with minor changes. The runner will evolve with features as time permits but appears to be fully functional.
  
@@ -79,6 +79,12 @@ Stderr and stdout is muted except for files which have a failing test
 ### Original tap runner failure
 
 ![failed-tap](http://github.com/jeffbski/tapper/raw/master/doc/failed-tap.png)
+
+## Limitations
+
+ - stdout logging that looks like tap output (ok, not ok, #) will not be displayed unless errors in file, however all stderr logging will be displayed regardless so it is recommended.
+ - stdout/stderr appears before the test names and asserts due to how tap currently outputs data
+ - Asserts are summarized at the bottom
 
 ## License
 

@@ -4,9 +4,9 @@ var sprintf = require('sprintf').sprintf;
 var clc = require('cli-color');
 var optimist = require('optimist');
 
-var VERSION = '0.1.0';
+var VERSION = '0.1.1';
 
-var argv = optimist.usage('Usage: $0 fileOrDir {OPTIONS}', {
+var argv = optimist.usage('Usage: $0 path [path2 pathN] {OPTIONS}', {
   'help': {
     description: 'Show this usage screen',
     boolean: true,
@@ -51,10 +51,11 @@ r.on("file", function (file, results, details) {
     if (details.skip) {
       console.log("  skipped: %s", details.skipTotal)
     }
+    if (results.nonTapOutAndErr && results.nonTapOutAndErr.trim()) console.error(results.nonTapOutAndErr);
   } else {
     if (colorize) sdotsn = clc.red(sdotsn);
     console.log(sdotsn);
-    if (results.stderr && results.stderr.trim()) console.error(results.stderr);
+    if (results.fullOutAndErr && results.fullOutAndErr.trim()) console.error(results.fullOutAndErr);
     console.error(formatFailedAsserts(details));
     //console.error(details)
     //      console.log("    Command: %s", results.command)

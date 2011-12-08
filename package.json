@@ -1,7 +1,7 @@
 {
   "name": "tapr",
   "description": "Tapper (tapr) is a tap runner which allows stdout and stderr mixed in with the tap output and also presents detail output in a more concise fashion. Tapper also optionally adds color to the output. Core based on Isaac Z Schlueter original tap runner.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jeff Barczewski <jeff.barczewski@gmail.com>",
   "contributors": [
     "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
