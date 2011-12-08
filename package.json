@@ -16,7 +16,7 @@
   "dependencies": {
     "cli-color": "~0.1.4",
     "sprintf": "~0.1.1",
-    "tap": "~0.1.0",
+    "tap": "~0.1.2",
     "inherits" : "~1.0.0",
     "yamlish" : "~0.0.2",
     "slide": "~1.1.3",
