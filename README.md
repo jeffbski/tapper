@@ -2,6 +2,13 @@
 
 Tapper (aka tapr) is a node.js tap test runner which allows stdout and stderr mixed in with the tap output. Also tapper adds color to the output. Core based on Isaac Z Schlueter original tap runner.
 
+For a nice description of node.js Tap tests, see Isaac's readme on the node-tap github page <https://github.com/isaacs/node-tap>
+
+Isaac designed his Tap implementation to be modular for easy consumation and extension. Tapr customizes the runner component and uses the rest of node-tap as is.
+
+Because Tap is modular, it is designed to be consumed in many ways (like automated build tools, customized runners) and other testing frameworks can provide producers to provide tap input.
+
+
 
 ## Goals
 
