@@ -15,9 +15,9 @@ Tapper (aka tapr) is a node.js tap runner which allows stdout and stderr mixed i
   npm install tapr  # install locally
   # OR
   npm install -g tapr  # install globally
-```    
+```
 
-OR 
+OR
 
 Add to your project package.json
 
@@ -35,18 +35,18 @@ In your tests use the tap that is available off of tapr
 
 ```javascript
   // in your test file
-  var test = require('tapr').tap.test.
+  var test = require('tapr').tap.test
 ```
 
 
-Then npm install your package with dev dependencies from the project directory 
+Then npm install your package with dev dependencies from the project directory
 
 ```bash
   npm install
 ```
 
-OR 
-   
+OR
+
 Pull from github - http://github.com/jeffbski/tapper
 
 ## Usage
@@ -60,14 +60,14 @@ Pull from github - http://github.com/jeffbski/tapper
   tapr --help                         # display usage
   tapr --version                    # display version
   tapr --no-color fileOrDir   # run without color output
-```  
+```
 
 ## Status
 
  - v0.1.1 - 2011-12-08 - change stdout/stderr to always output, not just for failed tests
  - v0.1.0 - 2011-11-28 - tapr - change bin/tapper to bin/tapr for convenient typing. tapr is also short for tap runner
  - v0.0.6 - 2011-11-22 - Tapper is based on the original tap code with minor changes. The runner will evolve with features as time permits but appears to be fully functional.
- 
+
 ## Screenshots
 
 ### Successful example where all tests are passing
