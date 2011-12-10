@@ -30,7 +30,7 @@ Add to your project package.json
 
 ```javascript
   "devDependencies": {
-    "tapr" : "~0.1.1"
+    "tapr" : "~0.1.2"
     }
 ```
 
@@ -71,6 +71,7 @@ Pull from github - http://github.com/jeffbski/tapper
 
 ## Status
 
+ - v0.1.2 - 2011-12-10 - improve readme and description
  - v0.1.1 - 2011-12-08 - change stdout/stderr to always output, not just for failed tests
  - v0.1.0 - 2011-11-28 - tapr - change bin/tapper to bin/tapr for convenient typing. tapr is also short for tap runner
  - v0.0.6 - 2011-11-22 - Tapper is based on the original tap code with minor changes. The runner will evolve with features as time permits but appears to be fully functional.
