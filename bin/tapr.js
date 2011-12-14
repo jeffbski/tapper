@@ -2,43 +2,30 @@
 
 var sprintf = require('sprintf').sprintf;
 var clc = require('cli-color');
-var optimist = require('optimist');
+var prog = require('commander');
 
-var VERSION = '0.1.2';
+var VERSION = '0.1.3';
 
-var argv = optimist.usage('Usage: $0 path [path2 pathN] {OPTIONS}', {
-  'help': {
-    description: 'Show this usage screen',
-    boolean: true,
-    short: 'h'
-  },
-  'version': {
-    description: 'Display version and exit',
-    boolean: true,
-    short: 'v'
-  },
-  'color': {
-    description: 'Use color for output, --no-color to disable',
-    boolean: true,
-    default: true,
-  }
-}).argv;
+prog
+  .version(VERSION)
+  .usage('[options] <path ...>')
+  .option('    --no-color', 'Run without colorization')
+  .parse(process.argv);
 
-if (argv.version) {
-  console.log(VERSION);
+
+if (!prog.args.length) { // no files specified, show help
+  process.stdout.write(prog.helpInformation());
+  prog.emit('--help');
   process.exit(0);
-}
-
-if (!argv._.length) {
-  optimist.showHelp();
-  process.exit(1);
 }
 
 var path = require("path");
 var Runner = require("../lib/tapper");
 var TapProducer = require("tap").Producer;
-var r = new Runner(argv._, argv);
-var colorize = argv.color;
+
+var options = { color: prog.color };
+var r = new Runner(prog.args, options);
+var colorize = prog.color;
 
 r.on("file", function (file, results, details) {
   var s = (details.ok ? "" : "not ") + "ok "+results.name
